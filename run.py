@@ -6,21 +6,33 @@ Random number generator application
 import random
 import tkinter
 
-# Range of random integers
-min_randint = 1
-max_randint = 20
+def main():
+    '''
+    This is the main function that calls all the other functions in the script
+    '''
+    random_integer = generate_randint()
+    display_gui(random_integer)
 
-# Generate a random integer
-randint_as_int = random.randint(min_randint, max_randint)
-randint_as_str = str(randint_as_int)
+def generate_randint():
+    '''
+    Generate a random integer within the desired range
+    '''
+    minimum = 1
+    maximum = 20
 
-# Create a new graphical user interface (GUI) using tkinter
-gui = tkinter.Tk()
+    return random.randint(minimum, maximum)
 
-# Place the random integer as text inside the GUI window
-window = tkinter.Label(gui, text=randint_as_str)
-window.pack()
+def display_gui(random_integer):
+    '''
+    Configure and display a GUI window to show a random integer
+    '''
+    width_padding = 10
+    height_lines = 5
 
-# Show the GUI to the user. Start the GUI function 'mainloop()'.
-print(" - NOTE: The GUI window is very small. Check the top left of the screen.")
-gui.mainloop()
+    gui = tkinter.Tk()
+    window = tkinter.Label(gui, text=str(random_integer), width=width_padding, height=height_lines)
+    window.pack()
+    gui.mainloop()
+
+if __name__ == '__main__':
+    main()

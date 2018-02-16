@@ -36,4 +36,7 @@ git checkout v0.0
 
 # To checkout another version, substitute the version name for <version>
 git checkout <version>
+
+# To checkout the latest version
+git checkout master
 ```
