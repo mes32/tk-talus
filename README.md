@@ -9,13 +9,13 @@ Image Author: [Kolby Kirk](https://commons.wikimedia.org/wiki/File:Die_bone.jpg)
 
 ## Getting Started
 
-### Clone this repository
+### - Clone this repository
 Clone this repository using the following git command:
 ```bash
 git clone https://github.com/mes32/tk-talus
 ```
 
-### Run the program
+### - Run the program
 After cloning the repository, navigate into your project directory. In the code example below the path to your directory is indicated using the placeholder `<repo_direcotry>`. Run the script `run.py` with python3.
 ```bash
 # Navigate to the project directory
@@ -25,7 +25,7 @@ cd <repo_directory>
 python3 run.py
 ```
 
-### Tagged versions
+### - Tagged versions
 This project has several different versions. You can navigate between these versions using git. The command `git tag` will list all the available versions. The command `git checkout <version>` will checkout the specified version. Make sure to substitute the name of the version for the placeholder `<version>`. Checking out a version will temporarily re-write the contents of `run.py` to that version of the file.
 ```bash
 # List all versions
@@ -40,3 +40,8 @@ git checkout <version>
 # To checkout the latest version
 git checkout master
 ```
+
+## Tkinter References
+
+- [https://python-course.eu/python_tkinter.php](https://python-course.eu/python_tkinter.php)
+- [http://effbot.org/tkinterbook/tkinter-index.htm](http://effbot.org/tkinterbook/tkinter-index.htm)
