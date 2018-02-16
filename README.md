@@ -3,9 +3,10 @@ Random number generator in Python3
 
 This project also uses the python module `tkinter` to display a graphical user interface (GUI)
 
-![Bone Die](docs/images/Die_Bone.png)
-
-author: Kolby Kirk. CC BY 3.0 (image cropped from original dimensions) - https://creativecommons.org/licenses/by/3.0/ - https://commons.wikimedia.org/wiki/File:Die_bone.jpg
+![Bone Die](https://github.com/mes32/tk-talus/docs/images/Die_Bone.png)
+```
+Image Author: [Kolby Kirk](https://commons.wikimedia.org/wiki/File:Die_bone.jpg). [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). (image cropped from original dimensions)
+```
 
 ## Getting Started
 
