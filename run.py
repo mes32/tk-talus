@@ -14,26 +14,47 @@ class TalusFrame(tk.Frame):
     '''
     Extend tkinter Frame class to display a random number generator
     '''
+    roll_counter = 0
+    min_rand = 1
+    max_rand = 20
+    gui_width = 40
+    gui_height = 3
+    label = None
 
     def __init__(self, parent=None):
-        width = 40
-        height = 3
+        w = self.gui_width
+        h = self.gui_height
 
         tk.Frame.__init__(self, parent)
         tk.Frame.pack(self)
-        label = tk.Label(self, text='-- --', width=width, height=height)
-        label.pack()
-        tk.Button(self, text='ROLL', width=width, command= lambda: generate_randint(label)).pack()
+        self.label = tk.Label(self, text='-- --', width=w, height=h)
+        self.label.pack()
+        self.winfo_toplevel().title('TK-Talus')
+        tk.Button(self, text='ROLL', width=w, command= lambda: self.generate_randint()).pack()
 
-def generate_randint(label):
-    '''
-    Generate a random integer within the desired range
-    '''
-    minimum = 1
-    maximum = 20
+    def generate_randint(self):
+        '''
+        Generate a random integer within the desired range
+        '''
+        random_integer = random.randint(self.min_rand, self.max_rand)
+        self.roll_counter = self.roll_counter + 1
+        self.update_label(random_integer)
+        self.update_title()
 
-    random_integer = random.randint(minimum, maximum)
-    label.config(text=str(random_integer))
+    def update_label(self, random_integer):
+        '''
+        Update the GUI to display the updated random integer
+        '''
+        self.label.config(text=str(random_integer))
+
+    def update_title(self):
+        '''
+        Update the GUI to title bar to display the updated counter
+        '''
+        dice_num = self.max_rand
+        roll_num = self.roll_counter
+        title_string = 'TK-Talus      |      d%d, roll %d' % (dice_num, roll_num)
+        self.winfo_toplevel().title(title_string)
 
 if __name__ == '__main__':
     main()
