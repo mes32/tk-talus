@@ -4,13 +4,26 @@ Random number generator application
 '''
 
 import random
-import tkinter
+import tkinter as tk
 
 def main():
+    gui = TalusFrame()
+    gui.mainloop()
+
+class TalusFrame(tk.Frame):
     '''
-    This is the main function that calls all the other functions in the script
+    Extend tkinter Frame class to display a random number generator
     '''
-    display_gui()
+
+    def __init__(self, parent=None):
+        width = 40
+        height = 3
+
+        tk.Frame.__init__(self, parent)
+        tk.Frame.pack(self)
+        label = tk.Label(self, text='-- --', width=width, height=height)
+        label.pack()
+        tk.Button(self, text='ROLL', width=width, command= lambda: generate_randint(label)).pack()
 
 def generate_randint(label):
     '''
@@ -21,21 +34,6 @@ def generate_randint(label):
 
     random_integer = random.randint(minimum, maximum)
     label.config(text=str(random_integer))
-
-def display_gui():
-    '''
-    Configure and display a GUI window to show a random integer
-    '''
-    width = 40
-    height = 3
-
-    gui = tkinter.Tk()
-    label = tkinter.Label(gui, text='-- --', width=width, height=height)
-    label.pack()
-    button = tkinter.Button(gui, text='ROLL', width=width, command= lambda: generate_randint(label))
-    button.pack()
-
-    gui.mainloop()
 
 if __name__ == '__main__':
     main()
