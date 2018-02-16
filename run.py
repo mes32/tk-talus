@@ -17,20 +17,22 @@ class TalusFrame(tk.Frame):
     roll_counter = 0
     min_rand = 1
     max_rand = 20
-    gui_width = 40
+    gui_width = 24
     gui_height = 3
     label = None
+    font = ("Helvetica", 24)
 
     def __init__(self, parent=None):
         w = self.gui_width
         h = self.gui_height
+        f = self.font
 
         tk.Frame.__init__(self, parent)
         tk.Frame.pack(self)
-        self.label = tk.Label(self, text='-- --', width=w, height=h)
+        self.label = tk.Label(self, text='--- ---', font=f, width=w, height=h)
         self.label.pack()
         self.winfo_toplevel().title('TK-Talus')
-        tk.Button(self, text='ROLL', width=w, command= lambda: self.generate_randint()).pack()
+        tk.Button(self, text='Roll', font=f, width=w, command= lambda: self.generate_randint()).pack()
 
     def generate_randint(self):
         '''
