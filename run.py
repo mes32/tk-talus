@@ -2,12 +2,15 @@
 '''
 Random number generator application
 '''
-
+import sys
 import random
 import tkinter as tk
 
 def main():
     gui = TalusFrame()
+    if len(sys.argv) > 1:
+        nsides = sys.argv[1]
+        gui.set_nsides(nsides)
     gui.mainloop()
 
 class TalusFrame(tk.Frame):
@@ -16,7 +19,7 @@ class TalusFrame(tk.Frame):
     '''
     roll_counter = 0
     min_rand = 1
-    max_rand = 20
+    max_rand = 6
     gui_width = 24
     gui_height = 3
     label = None
@@ -33,6 +36,9 @@ class TalusFrame(tk.Frame):
         self.label.pack()
         self.winfo_toplevel().title('TK-Talus')
         tk.Button(self, text='Roll', font=f, width=w, command= lambda: self.generate_randint()).pack()
+
+    def set_nsides(self, nsides):
+        self.max_rand = int(nsides)
 
     def generate_randint(self):
         '''
