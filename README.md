@@ -16,7 +16,7 @@ git clone https://github.com/mes32/tk-talus
 ```
 
 ### 2. Run the program
-After cloning the repository, navigate into your project directory. In the code example below the path to your directory is indicated using the placeholder `<repo_direcotry>`. Run the script `run.py` with python3.
+After cloning the repository, navigate into your project directory. In the code example below the path to your directory is indicated using the placeholder `<repo_directory>`. Then run the script `run.py` with python3.
 ```bash
 # Navigate to the project directory
 cd <repo_directory>

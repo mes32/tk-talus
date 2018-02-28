@@ -8,9 +8,6 @@ import tkinter as tk
 
 def main():
     gui = TalusFrame()
-    if len(sys.argv) > 1:
-        nsides = sys.argv[1]
-        gui.set_nsides(nsides)
     gui.mainloop()
 
 class TalusFrame(tk.Frame):
@@ -32,10 +29,19 @@ class TalusFrame(tk.Frame):
 
         tk.Frame.__init__(self, parent)
         tk.Frame.pack(self)
+
+        self.selected = tk.StringVar(self)
+        self.selected.set("6")
+        option = tk.OptionMenu(self, self.selected, "2", "6", "10", "20")
+        option.pack()
+
         self.label = tk.Label(self, text='--- ---', font=f, width=w, height=h)
         self.label.pack()
+
         self.winfo_toplevel().title('TK-Talus')
-        tk.Button(self, text='Roll', font=f, width=w, command= lambda: self.generate_randint()).pack()
+
+        button = tk.Button(self, text='Roll', font=f, width=w, command= lambda: self.generate_randint())
+        button.pack()
 
     def set_nsides(self, nsides):
         self.max_rand = int(nsides)
@@ -44,6 +50,7 @@ class TalusFrame(tk.Frame):
         '''
         Generate a random integer within the desired range
         '''
+        self.max_rand = int(self.selected.get())
         random_integer = random.randint(self.min_rand, self.max_rand)
         self.roll_counter = self.roll_counter + 1
         self.update_label(random_integer)
